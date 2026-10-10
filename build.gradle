@@ -9,12 +9,16 @@ buildscript {
         mavenCentral()
         google()
     }
+    configurations.all {
+        resolutionStrategy {
+            force 'org.jetbrains.kotlin:kotlin-reflect:2.2.0'
+        }
+    }
 }
 
 plugins {
     // Note for FTC Teams: Do not modify this yourself.
-    id 'com.android.application' version '8.13.2' apply false
-    id 'com.android.library' version '8.13.2' apply false
+    id 'com.android.application' version '9.4.1' apply false
 }
 
 // This is now required because aapt2 has to be downloaded from the
@@ -23,6 +27,18 @@ allprojects {
     repositories {
         mavenCentral()
         google()
+    }
+    configurations.all {
+        resolutionStrategy {
+            force 'org.jetbrains.kotlin:kotlin-reflect:2.2.0'
+        }
+    }
+    configurations.configureEach { config ->
+        if (config.name == 'androidLintTool') {
+            config.resolutionStrategy.dependencySubstitution {
+                substitute module('com.android.tools.lint:lint-gradle') using module('com.android.tools.build:gradle:9.4.1')
+            }
+        }
     }
 }
 

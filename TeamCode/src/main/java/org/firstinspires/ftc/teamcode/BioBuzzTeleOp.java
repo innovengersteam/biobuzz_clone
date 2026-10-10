@@ -83,7 +83,7 @@ public class BioBuzzTeleOp extends LinearOpMode {
         rightRear.setDirection(DcMotorSimple.Direction.FORWARD);
 
         intake.setDirection(DcMotorSimple.Direction.FORWARD);
-        outtake.setDirection(DcMotorSimple.Direction.FORWARD);
+        outtake.setDirection(DcMotorSimple.Direction.REVERSE);
         transfer.setDirection(DcMotorSimple.Direction.FORWARD);
 
         // Brake drive motors when joystick is released

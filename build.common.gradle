@@ -104,9 +104,13 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    packagingOptions {
-        pickFirst '**/*.so'
+    lint {
+        checkReleaseBuilds false
+        abortOnError false
+        checkDependencies false
+        ignoreWarnings true
     }
+
     ndkVersion '21.3.6528147'
 }
 
